@@ -100,8 +100,6 @@ exports.update = (req, res) => {
       })
     }
 
-
-
     let product = req.product;
     product = _.extend(product, fields);
 
