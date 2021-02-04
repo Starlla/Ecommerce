@@ -1,4 +1,4 @@
-exports.userSignupValidator = (req, res) => {
+exports.userSignupValidator = (req, res, next) => {
   req.check('name', 'Name is require').notEmpty();
   req.check('email', 'Email must be between 3 to 32 chracters').matches(/.+\@.+\..+/)
     .withMessage('Email must contain @')
@@ -7,7 +7,7 @@ exports.userSignupValidator = (req, res) => {
       max: 32
     });
   req.check('password', 'Password is required').notEmpty()
-  req.check('passwrod')
+  req.check('password')
     .isLength({ min: 6 })
     .matches(/\d/)
     .withMessage('Password must contain a number');
