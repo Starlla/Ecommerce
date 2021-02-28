@@ -21,11 +21,12 @@ mongoose.connect(process.env.DATABASE, {
     console.log('Db Connected');
 })
 
+app.use(cors());
 app.use(morgan('dev'))
 app.use(bodyParser.json())
 app.use(cookieParser())
 app.use(expressValidator());
-app.use(cors());
+
 
 app.use('/api', authRoutes);
 app.use('/api', userRoutes);
